@@ -1,0 +1,289 @@
+:root {
+    --wood-color: rgb(146, 97, 64);
+    --metal-color: rgb(192, 192, 192);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --outline-color: rgb(121, 81, 54);
+    --metal-outline-color: rgb(128, 128, 128);
+    --background-color: rgb(255, 239, 213);
+    --animation-speed: 120s;
+}
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    background: linear-gradient(
+        90deg,
+        rgb(0, 0, 0),
+        rgb(0, 0, 0),
+        rgb(47, 50, 51),
+        rgb(199, 140, 51),
+        rgb(174, 232, 255),
+        rgb(205, 241, 255),
+        rgb(225, 225, 255),
+        rgb(199, 140, 51),
+        rgb(47, 50, 51),
+        rgb(0, 0, 0),
+        rgb(0, 0, 0)
+    );
+    background-size: 2000% 100%;
+    animation: backgroundMove var(--animation-speed) infinite linear;
+}
+/* Add background color animation from white as day to black as night */
+@keyframes backgroundMove {
+    0% {
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 50% 0%;
+    }
+    75% {
+        background-position: 100% 0%;
+    }
+    100% {
+        background-position: 100% 0%;
+    }
+}
+
+/* Street */
+.street {
+    position: absolute;
+    height: 80px;
+    background-color: rgb(73, 73, 73);
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    overflow: hidden;
+}
+
+/* Street segment */
+.street-segment {
+    position: absolute;
+    height: 25px;
+    background-color: rgb(172, 160, 55);
+    border: solid rgb(204, 192, 84);
+    border-width: 10px 0 0 0;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+/* Park */
+.park {
+    position: absolute;
+    height: 20px;
+    background-color: rgb(26, 78, 26);
+    bottom: 80px;
+    left: 0px;
+    right: 0px;
+}
+
+/* Overlay */
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 3;
+    animation: overlayOpacity var(--animation-speed) infinite linear;
+}
+/* ADD: Opacity animation */
+@keyframes overlayOpacity {
+    0% {
+        opacity: 0.8;
+    }
+    25% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
+
+/* Bench Box */
+.bench {
+    position: relative;
+    padding: 20px;
+    width: 300px;
+    height: 160px;
+    margin-bottom: 50px;
+}
+/* ADD: Bench shadow using .bench::before */
+.bench::before {
+    content: "";
+    position: absolute;
+    height: 30px;
+    background-color: var(--shadow-color);
+    border-radius: 15px;
+    bottom: 0px;
+    animation: shadowMove var(--animation-speed) infinite linear;
+}
+
+/* ADD: Shadow animation as the day past following the sun by changing the left and right */
+@keyframes shadowMove {
+    0% {
+        left: -100px;
+        right: 30px;
+        opacity: 0;
+    }
+    25% {
+        left: 20px;
+        right: 20px;
+        opacity: 1;
+    }
+    75% {
+        left: 30px;
+        right: -100px;
+        opacity: 0;
+    }
+    100% {
+        left: 20px;
+        right: 20px;
+        opacity: 0;
+    }
+}
+
+/* Top Horizontal Wood */
+.top-horizontal-wood {
+    position: absolute;
+    height: 20px;
+    background-color: var(--wood-color);
+    border-radius: 5px;
+    left: 40px;
+    right: 40px;
+    z-index: 1;
+}
+/* ADD: Shadow using ::before */
+.top-horizontal-wood::before {
+    content: "";
+    position: absolute;
+    height: 5px;
+    background-color: var(--shadow-color);
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+.top-horizontal-wood-a {
+    top: 0px;
+}
+.top-horizontal-wood-b {
+    top: 25px;
+}
+.top-horizontal-wood-c {
+    top: 50px;
+}
+.top-horizontal-wood-d {
+    top: 75px;
+}
+
+/* Bottom Horizontal Wood */
+.bottom-horizontal-wood {
+    position: absolute;
+    height: 10px;
+    background-color: var(--wood-color);
+    border-radius: 2px;
+    z-index: 2;
+}
+/* ADD: Shadow using ::before */
+.bottom-horizontal-wood::before {
+    content: "";
+    position: absolute;
+    height: 5px;
+    background-color: var(--shadow-color);
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+.bottom-horizontal-wood-a {
+    top: 105px;
+    left: 40px;
+    right: 40px;
+}
+.bottom-horizontal-wood-b {
+    top: 110px;
+    left: 30px;
+    right: 30px;
+}
+.bottom-horizontal-wood-c {
+    top: 115px;
+    left: 20px;
+    right: 20px;
+}
+.bottom-horizontal-wood-d {
+    top: 120px;
+    left: 10px;
+    right: 10px;
+}
+.bottom-horizontal-wood-e {
+    top: 125px;
+    left: 0px;
+    right: 0px;
+}
+.bottom-horizontal-wood-f {
+    top: 135px;
+    left: 0px;
+    right: 0px;
+}
+
+/* Front Vertical Wood */
+.front-vertical-wood {
+    position: absolute;
+    width: 20px;
+    background-color: var(--metal-color);
+    border-radius: 3px;
+}
+/* ADD: Shadow using ::before */
+.front-vertical-wood::before {
+    content: "";
+    position: absolute;
+    height: 30px;
+    background-color: var(--shadow-color);
+    top: 0px;
+    left: 0px;
+    right: 0px;
+}
+.front-vertical-wood-a {
+    top: 140px;
+    left: 10px;
+    bottom: 0px;
+}
+.front-vertical-wood-b {
+    top: 140px;
+    right: 10px;
+    bottom: 0px;
+}
+
+/* Back Vertical Wood */
+.back-vertical-wood {
+    position: absolute;
+    width: 20px;
+    background-color: var(--metal-color);
+    border-radius: 3px;
+}
+/* ADD: Shadow using ::before */
+.back-vertical-wood::before {
+    content: "";
+    position: absolute;
+    background-color: var(--shadow-color);
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+.back-vertical-wood-a {
+    top: 0px;
+    left: 50px;
+    bottom: 20px;
+}
+.back-vertical-wood-b {
+    top: 0px;
+    right: 50px;
+    bottom: 20px;
+}
