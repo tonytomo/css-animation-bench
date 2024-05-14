@@ -9,12 +9,14 @@
 }
 
 body {
+    position: relative;
     margin: 0;
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: end;
+    overflow: hidden;
     background: linear-gradient(
         90deg,
         rgb(0, 0, 0),
@@ -63,8 +65,8 @@ body {
 .street-segment {
     position: absolute;
     height: 25px;
-    background-color: rgb(172, 160, 55);
-    border: solid rgb(204, 192, 84);
+    background-color: rgb(126, 126, 126);
+    border: solid rgb(167, 167, 167);
     border-width: 10px 0 0 0;
     bottom: 0px;
     left: 0px;
@@ -109,42 +111,50 @@ body {
 /* Bench Box */
 .bench {
     position: relative;
-    padding: 20px;
-    width: 300px;
+    width: 100%;
     height: 160px;
     margin-bottom: 50px;
+    overflow: hidden;
 }
-/* ADD: Bench shadow using .bench::before */
-.bench::before {
-    content: "";
+.bench-shadow-container {
+    position: relative;
+    width: 460px;
+    height: 100%;
+    inset: 0;
+    margin: auto;
+    overflow: hidden;
+}
+.bench-shadow {
     position: absolute;
     height: 30px;
     background-color: var(--shadow-color);
     border-radius: 15px;
-    bottom: 0px;
+    inset: 0;
+    margin: auto;
+    top: 140px;
     animation: shadowMove var(--animation-speed) infinite linear;
 }
 
 /* ADD: Shadow animation as the day past following the sun by changing the left and right */
 @keyframes shadowMove {
     0% {
-        left: -100px;
-        right: 30px;
+        left: 0px;
+        right: 130px;
         opacity: 0;
     }
     25% {
-        left: 20px;
-        right: 20px;
+        left: 110px;
+        right: 110px;
         opacity: 1;
     }
     75% {
-        left: 30px;
-        right: -100px;
+        left: 130px;
+        right: 0px;
         opacity: 0;
     }
     100% {
-        left: 20px;
-        right: 20px;
+        left: 110px;
+        right: 110px;
         opacity: 0;
     }
 }
@@ -152,11 +162,12 @@ body {
 /* Top Horizontal Wood */
 .top-horizontal-wood {
     position: absolute;
-    height: 20px;
+    height: 15px;
+    width: 200px;
     background-color: var(--wood-color);
     border-radius: 5px;
-    left: 40px;
-    right: 40px;
+    inset: 0 0 160px 0;
+    margin: auto;
     z-index: 1;
 }
 /* ADD: Shadow using ::before */
@@ -171,65 +182,61 @@ body {
 }
 
 .top-horizontal-wood-a {
-    top: 0px;
+    top: 7px;
 }
 .top-horizontal-wood-b {
     top: 25px;
 }
 .top-horizontal-wood-c {
-    top: 50px;
+    top: 43px;
 }
 .top-horizontal-wood-d {
-    top: 75px;
+    top: 61px;
 }
 
 /* Bottom Horizontal Wood */
 .bottom-horizontal-wood {
     position: absolute;
-    height: 10px;
+    height: 8px;
     background-color: var(--wood-color);
     border-radius: 2px;
+    inset: 0 0 160px 0;
+    margin: auto;
     z-index: 2;
 }
 /* ADD: Shadow using ::before */
 .bottom-horizontal-wood::before {
     content: "";
     position: absolute;
-    height: 5px;
+    height: 4px;
     background-color: var(--shadow-color);
     bottom: 0px;
     left: 0px;
     right: 0px;
 }
 .bottom-horizontal-wood-a {
-    top: 105px;
-    left: 40px;
-    right: 40px;
+    top: 80px;
+    width: 200px;
 }
 .bottom-horizontal-wood-b {
-    top: 110px;
-    left: 30px;
-    right: 30px;
+    top: 85px;
+    width: 220px;
 }
 .bottom-horizontal-wood-c {
-    top: 115px;
-    left: 20px;
-    right: 20px;
+    top: 90px;
+    width: 240px;
 }
 .bottom-horizontal-wood-d {
-    top: 120px;
-    left: 10px;
-    right: 10px;
+    top: 95px;
+    width: 260px;
 }
 .bottom-horizontal-wood-e {
-    top: 125px;
-    left: 0px;
-    right: 0px;
+    top: 100px;
+    width: 280px;
 }
 .bottom-horizontal-wood-f {
-    top: 135px;
-    left: 0px;
-    right: 0px;
+    top: 108px;
+    width: 280px;
 }
 
 /* Front Vertical Wood */
@@ -238,6 +245,9 @@ body {
     width: 20px;
     background-color: var(--metal-color);
     border-radius: 3px;
+    inset: 0;
+    margin: auto;
+    bottom: 5px;
 }
 /* ADD: Shadow using ::before */
 .front-vertical-wood::before {
@@ -250,14 +260,12 @@ body {
     right: 0px;
 }
 .front-vertical-wood-a {
-    top: 140px;
-    left: 10px;
-    bottom: 0px;
+    top: 110px;
+    left: 220px;
 }
 .front-vertical-wood-b {
-    top: 140px;
-    right: 10px;
-    bottom: 0px;
+    top: 110px;
+    right: 220px;
 }
 
 /* Back Vertical Wood */
@@ -266,6 +274,8 @@ body {
     width: 20px;
     background-color: var(--metal-color);
     border-radius: 3px;
+    inset: 0;
+    margin: auto;
 }
 /* ADD: Shadow using ::before */
 .back-vertical-wood::before {
@@ -279,11 +289,11 @@ body {
 }
 .back-vertical-wood-a {
     top: 0px;
-    left: 50px;
+    left: 150px;
     bottom: 20px;
 }
 .back-vertical-wood-b {
     top: 0px;
-    right: 50px;
+    right: 150px;
     bottom: 20px;
 }
