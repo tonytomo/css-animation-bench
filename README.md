@@ -2,20 +2,25 @@
 
 Welcome to the Bench project! This web application showcases my personal projects in an interactive and visually appealing way. Whether you're a developer, designer, or simply curious, this repository is a great place to explore my work.
 
-### Features
-
-- Browse through a collection of my projects
-- View detailed information about each project, including technologies used and key features
-- Interact with live demos and screenshots
-- Get in touch with me for feedback
-
-### Getting Started
+### Feel free to express your creativity here
 
 To get started with the Bench project, follow these steps:
 
+1. Clone the repository to your local machine
+1. Open the `index.html` file in your browser
+1. Explore your creativity
+1. Make your own css file and link it to the `index.html` file
+
+### Or just relax and enjoy the view
+
 1. Open the deployed web application [here](https://tonytomo.github.io/)
-3. Explore the different projects and their details
-4. Feel free to reach out to me if you have any questions or suggestions
+1. Let it out
+
+### Features
+
+- Relaxing and visually appealing design
+- Sit and interact with a bench
+- Get in touch with me for feedback
 
 ### Contact
 
